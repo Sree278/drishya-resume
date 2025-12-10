@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drishya E - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-charcoal: #2D3748;
+            --secondary-sage: #68D391;
+            --accent-amber: #F6AD55;
+            --text-dark: #1A202C;
+            --bg-white: #FFFFFF;
+            --text-muted: #718096;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: var(--text-dark);
+            line-height: 1.4;
+            font-size: 11pt;
+        }
+
+        .resume-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: white;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-sage);
+        }
+
+        .name {
+            font-size: 28pt;
+            font-weight: 700;
+            color: var(--primary-charcoal);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .title {
+            font-size: 14pt;
+            font-weight: 500;
+            color: var(--secondary-sage);
+            margin-bottom: 16px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 10pt;
+            color: var(--text-muted);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(104, 211, 145, 0.1);
+            color: var(--secondary-sage);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 9pt;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+
+        .availability-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--secondary-sage);
+            border-radius: 50%;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 16pt;
+            font-weight: 600;
+            color: var(--primary-charcoal);
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--secondary-sage);
+        }
+
+        .section-content {
+            margin-left: 0;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 11pt;
+            line-height: 1.5;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skill-category {
+            margin-bottom: 16px;
+        }
+
+        .skill-category-title {
+            font-size: 12pt;
+            font-weight: 600;
+            color: var(--secondary-sage);
+            margin-bottom: 8px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-badge {
+            background: linear-gradient(135deg, var(--secondary-sage), var(--accent-amber));
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 8pt;
+            font-weight: 500;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 10pt;
+        }
+
+        .skill-bar {
+            width: 60px;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--secondary-sage);
+            border-radius: 2px;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .exp-title {
+            font-size: 12pt;
+            font-weight: 600;
+            color: var(--primary-charcoal);
+        }
+
+        .exp-company {
+            font-size: 11pt;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .exp-date {
+            font-size: 9pt;
+            color: var(--text-muted);
+            background: #f8fafc;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .exp-description {
+            font-size: 10pt;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .exp-achievements {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .exp-achievements li {
+            font-size: 9pt;
+            line-height: 1.4;
+            margin-bottom: 3px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .exp-achievements li::before {
+            content: "•";
+            color: var(--secondary-sage);
+            position: absolute;
+            left: 0;
+        }
+
+        .exp-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 12px;
+        }
+
+        .edu-degree {
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--primary-charcoal);
+        }
+
+        .edu-institution {
+            font-size: 10pt;
+            color: var(--text-muted);
+        }
+
+        .edu-date {
+            font-size: 9pt;
+            color: var(--text-muted);
+        }
+
+        /* Languages */
+        .languages {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10pt;
+        }
+
+        /* Key Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 12px;
+            background: rgba(104, 211, 145, 0.05);
+            border-radius: 8px;
+        }
+
+        .metric-value {
+            font-size: 16pt;
+            font-weight: 700;
+            color: var(--secondary-sage);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 8pt;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 10pt;
+            }
+            
+            .resume-container {
+                padding: 15mm;
+                max-width: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 16px;
+            }
+            
+            .experience-item {
+                page-break-inside: avoid;
+            }
+            
+            .skills-grid {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* QR Code */
+        .qr-code {
+            position: absolute;
+            bottom: 20mm;
+            right: 20mm;
+            width: 20mm;
+            height: 20mm;
+            background: white;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6pt;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="name">Drishya E</h1>
+            <div class="title">SharePoint Developer & UI/UX Designer</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>drishyavarma5@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+91 7907860903</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Chennai, India</span>
+                </div>
+            </div>
+            <div class="availability">
+                <div class="availability-dot"></div>
+                Available for new opportunities
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="section-content">
+                <p class="summary">
+                    SharePoint Developer with 4+ years of expertise in SharePoint Online, SPFx development, 
+                    Power Platform automation, and modern UI/UX design. Proven track record of delivering 
+                    enterprise solutions with 150+ successful migrations and 25+ projects completed. 
+                    Strong focus on clean UI/UX, troubleshooting, and high-quality solution delivery.
+                </p>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-value">4+</span>
+                        <div class="metric-label">Years Experience</div>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">150+</span>
+                        <div class="metric-label">Sites Migrated</div>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">25+</span>
+                        <div class="metric-label">Projects Delivered</div>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">98%</span>
+                        <div class="metric-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div>
+                        <div class="skill-category">
+                            <div class="skill-category-title">SharePoint & Microsoft 365</div>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <span>SharePoint Online</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>SPFx Development</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>Power Automate</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>PowerApps</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <div class="skill-category-title">Development & Programming</div>
+                            <div class="skill-items">
+                                <span class="skill-badge">JavaScript</span>
+                                <span class="skill-badge">TypeScript</span>
+                                <span class="skill-badge">HTML/CSS</span>
+                                <span class="skill-badge">React</span>
+                                <span class="skill-badge">Node.js</span>
+                                <span class="skill-badge">SQL Server</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-category">
+                            <div class="skill-category-title">Migration & Tools</div>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <span>ShareGate</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>FluentPro</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>Migration Planning</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <div class="skill-category-title">UI/UX & Design</div>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <span>UI/UX Design</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>Responsive Design</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span>User Research</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="section-content">
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">SharePoint Developer</div>
+                            <div class="exp-company">Kanoo Elite, Chennai</div>
+                        </div>
+                        <div class="exp-date">Mar 2025 - Present</div>
+                    </div>
+                    <div class="exp-description">
+                        Leading SharePoint development initiatives with modern SPFx solutions and Power Platform automation.
+                    </div>
+                    <ul class="exp-achievements">
+                        <li>Developed modern SharePoint Intranet Portal with SPFx components and vendor portal</li>
+                        <li>Built Learning Portal with real-time user-based content personalization</li>
+                        <li>Created maintenance workflow automation with multi-level approvals</li>
+                        <li>Engineered Document Management Systems for multiple departments</li>
+                    </ul>
+                    <div class="exp-technologies">
+                        <span class="skill-badge">SPFx</span>
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Power Automate</span>
+                        <span class="skill-badge">SharePoint Online</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">SharePoint Administrator</div>
+                            <div class="exp-company">LTI Mindtree, Bengaluru</div>
+                        </div>
+                        <div class="exp-date">May 2024 - Feb 2025</div>
+                    </div>
+                    <div class="exp-description">
+                        Managed SharePoint troubleshooting, escalations, and system stability for enterprise clients.
+                    </div>
+                    <ul class="exp-achievements">
+                        <li>Handled SharePoint troubleshooting and escalations with severity classification</li>
+                        <li>Collaborated with Senior Escalation Engineers for advanced issue resolution</li>
+                        <li>Maintained high customer satisfaction ratings with strong IVR feedback</li>
+                    </ul>
+                    <div class="exp-technologies">
+                        <span class="skill-badge">Administration</span>
+                        <span class="skill-badge">Troubleshooting</span>
+                        <span class="skill-badge">Support</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">SharePoint Administrator</div>
+                            <div class="exp-company">Happiest Minds (VIATRIS), Bengaluru</div>
+                        </div>
+                        <div class="exp-date">Jun 2023 - May 2024</div>
+                    </div>
+                    <div class="exp-description">
+                        Configured and maintained SharePoint Online environment with focus on permissions and workflows.
+                    </div>
+                    <ul class="exp-achievements">
+                        <li>Configured SharePoint Online permissions, profiles, workflows, and search</li>
+                        <li>Resolved platform issues and restored system stability</li>
+                        <li>Created detailed technical and user documentation</li>
+                    </ul>
+                    <div class="exp-technologies">
+                        <span class="skill-badge">SharePoint Online</span>
+                        <span class="skill-badge">Configuration</span>
+                        <span class="skill-badge">Documentation</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">SharePoint Developer</div>
+                            <div class="exp-company">TCS, Apexon, Bengaluru</div>
+                        </div>
+                        <div class="exp-date">Feb 2022 - Jun 2023</div>
+                    </div>
+                    <div class="exp-description">
+                        Led large-scale SharePoint migrations and developed custom workflow solutions.
+                    </div>
+                    <ul class="exp-achievements">
+                        <li>Migrated 150+ SharePoint sites to SharePoint Online using ShareGate</li>
+                        <li>Managed SCA access and workflow automation development</li>
+                        <li>Developed custom solutions for enterprise clients</li>
+                    </ul>
+                    <div class="exp-technologies">
+                        <span class="skill-badge">Migration</span>
+                        <span class="skill-badge">ShareGate</span>
+                        <span class="skill-badge">Workflows</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="section-content">
+                <div class="education-item">
+                    <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+                    <div class="edu-institution">Nehru College, Coimbatore</div>
+                    <div class="edu-date">2012 - 2015</div>
+                </div>
+                <div class="education-item">
+                    <div class="edu-degree">Higher Secondary Education</div>
+                    <div class="edu-institution">ST Thomas HSS, Palakkad</div>
+                    <div class="edu-date">2010 - 2012</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="section-content">
+                <div class="languages">
+                    <div class="language-item">
+                        <span>🇮🇳</span>
+                        <span>English (Fluent)</span>
+                    </div>
+                    <div class="language-item">
+                        <span>🇮🇳</span>
+                        <span>Tamil (Native)</span>
+                    </div>
+                    <div class="language-item">
+                        <span>🇮🇳</span>
+                        <span>Hindi (Fluent)</span>
+                    </div>
+                    <div class="language-item">
+                        <span>🇮🇳</span>
+                        <span>Malayalam (Fluent)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QR Code -->
+        <div class="qr-code">
+            <div>
+                <div>View Online Portfolio</div>
+                <div>cta2vvpufmihw.ok.kimi.link</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

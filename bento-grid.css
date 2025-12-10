@@ -1,0 +1,142 @@
+/* Bento Grid Container */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(250px, auto);
+    }
+}
+
+/* Bento Grid Items */
+.bento-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bento-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--highlight);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .bento-item:hover {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Spanning Classes */
+.col-span-2 {
+    grid-column: span 1;
+}
+
+.row-span-2 {
+    grid-row: span 1;
+}
+
+@media (min-width: 768px) {
+    .col-span-2 {
+        grid-column: span 2;
+    }
+
+    .row-span-2 {
+        grid-row: span 2;
+    }
+}
+
+/* Content Styling */
+.bento-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-charcoal);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.bento-desc {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.bento-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+/* Feature Item Specifics */
+.bento-item.feature {
+    background: linear-gradient(145deg, var(--bg-primary), var(--bg-secondary));
+}
+
+body.dark-mode .bento-item.feature {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+}
+
+/* Glassmorphism Re-use */
+.bento-item {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.bento-center {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Fix for Timeline/Experience in Bento Grid */
+.bento-item .timeline-header {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bento-item .timeline-period {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--highlight);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+/* CTA Attention Effect */
+.cta-glow {
+    animation: btn-glow 3s infinite;
+}
+
+@keyframes btn-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+        transform: scale(1.02);
+    }
+}

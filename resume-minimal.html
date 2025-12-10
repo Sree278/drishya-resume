@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drishya E - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-charcoal: #1a1a1a;
+            --secondary-gray: #404040;
+            --accent-light: #f5f5f5;
+            --text-dark: #1a1a1a;
+            --text-medium: #525252;
+            --text-light: #737373;
+            --border-light: #e5e5e5;
+            --highlight: #059669;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: var(--text-dark);
+            line-height: 1.5;
+            font-size: 10.5pt;
+            font-weight: 400;
+        }
+
+        .resume-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 24mm;
+            background: white;
+            position: relative;
+        }
+
+        /* Minimal Header */
+        .header {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .name {
+            font-size: 26pt;
+            font-weight: 600;
+            color: var(--primary-charcoal);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .title {
+            font-size: 13pt;
+            font-weight: 450;
+            color: var(--text-medium);
+            margin-bottom: 20px;
+            letter-spacing: 0.01em;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 9.5pt;
+            color: var(--text-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--highlight);
+            font-size: 9pt;
+            font-weight: 500;
+            margin-top: 16px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--highlight);
+            border-radius: 50%;
+        }
+
+        /* Section Styling - Minimal */
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 14pt;
+            font-weight: 550;
+            color: var(--primary-charcoal);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-light);
+            letter-spacing: -0.01em;
+        }
+
+        .section-content {
+            margin-left: 0;
+        }
+
+        /* Clean Summary */
+        .summary {
+            font-size: 10.5pt;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .highlight-item {
+            text-align: center;
+            padding: 12px 8px;
+        }
+
+        .highlight-value {
+            font-size: 18pt;
+            font-weight: 600;
+            color: var(--highlight);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .highlight-label {
+            font-size: 8.5pt;
+            color: var(--text-light);
+            font-weight: 450;
+        }
+
+        /* Skills - Clean Layout */
+        .skills-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .skill-group {
+            margin-bottom: 20px;
+        }
+
+        .skill-category {
+            font-size: 10.5pt;
+            font-weight: 550;
+            color: var(--primary-charcoal);
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9.5pt;
+            color: var(--text-medium);
+        }
+
+        .skill-name {
+            font-weight: 450;
+        }
+
+        .skill-level {
+            font-size: 8.5pt;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tech-tag {
+            background: var(--accent-light);
+            color: var(--text-medium);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 8pt;
+            font-weight: 450;
+        }
+
+        /* Experience - Clean Timeline */
+        .experience-item {
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .exp-role {
+            font-size: 12pt;
+            font-weight: 550;
+            color: var(--primary-charcoal);
+            margin-bottom: 2px;
+        }
+
+        .exp-company {
+            font-size: 10pt;
+            color: var(--text-medium);
+            font-weight: 450;
+        }
+
+        .exp-period {
+            font-size: 9pt;
+            color: var(--text-light);
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .exp-summary {
+            font-size: 10pt;
+            color: var(--text-medium);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .exp-achievements {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .exp-achievements li {
+            font-size: 9.5pt;
+            color: var(--text-medium);
+            margin-bottom: 4px;
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .exp-achievements li::before {
+            content: "—";
+            color: var(--highlight);
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+        }
+
+        /* Education - Simple */
+        .education-item {
+            margin-bottom: 12px;
+        }
+
+        .edu-degree {
+            font-size: 11pt;
+            font-weight: 550;
+            color: var(--primary-charcoal);
+            margin-bottom: 2px;
+        }
+
+        .edu-institution {
+            font-size: 10pt;
+            color: var(--text-medium);
+            font-weight: 450;
+            margin-bottom: 2px;
+        }
+
+        .edu-period {
+            font-size: 9pt;
+            color: var(--text-light);
+        }
+
+        /* Languages - Clean */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .language-item {
+            text-align: center;
+            padding: 8px;
+        }
+
+        .language-name {
+            font-size: 9.5pt;
+            font-weight: 450;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .language-level {
+            font-size: 8.5pt;
+            color: var(--text-light);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 10pt;
+            }
+            
+            .resume-container {
+                padding: 20mm;
+                max-width: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            .experience-item {
+                page-break-inside: avoid;
+            }
+            
+            .skills-section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="name">Drishya E</h1>
+            <div class="title">SharePoint Developer</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>drishyavarma5@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>+91 7907860903</span>
+                </div>
+                <div class="contact-item">
+                    <span>Chennai, India</span>
+                </div>
+            </div>
+            <div class="status">
+                <div class="status-dot"></div>
+                Available for new opportunities
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="section-content">
+                <p class="summary">
+                    SharePoint Developer with 4+ years of expertise in SharePoint Online, SPFx development, 
+                    Power Platform automation, and enterprise solution delivery. Proven track record of 
+                    successful migrations with 150+ sites migrated and 25+ projects completed across 
+                    multiple organizations.
+                </p>
+                <div class="highlight-grid">
+                    <div class="highlight-item">
+                        <span class="highlight-value">4+</span>
+                        <div class="highlight-label">Years Experience</div>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-value">150+</span>
+                        <div class="highlight-label">Sites Migrated</div>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-value">25+</span>
+                        <div class="highlight-label">Projects Delivered</div>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-value">98%</span>
+                        <div class="highlight-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="section-content">
+                <div class="skills-section">
+                    <div>
+                        <div class="skill-group">
+                            <div class="skill-category">SharePoint & Microsoft 365</div>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">SharePoint Online</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">SPFx Development</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Power Automate</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">PowerApps</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">SharePoint Administration</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <div class="skill-category">Development & Programming</div>
+                            <div class="tech-tags">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">SQL Server</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="skill-group">
+                            <div class="skill-category">Migration & Tools</div>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">ShareGate</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">FluentPro</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Migration Planning</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <div class="skill-category">Enterprise Solutions</div>
+                            <div class="skill-list">
+                                <div class="skill-item">
+                                    <span class="skill-name">Workflow Automation</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Document Management</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Intranet Development</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="section-content">
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">SharePoint Developer</div>
+                            <div class="exp-company">Kanoo Elite, Chennai</div>
+                        </div>
+                        <div class="exp-period">Mar 2025 - Present</div>
+                    </div>
+                    <div class="exp-summary">
+                        Leading SharePoint development initiatives with modern SPFx solutions and Power Platform automation.
+                    </div>
+                    <ul class="exp-achievements">
+                        <li>Developed modern SharePoint Intranet Portal with SPFx components and vendor portal</li>
+                        <li>Built Learning Portal with real-time user-based content personalization</li>
+                        <li>Created maintenance workflow automation with multi-level approvals</li>
+                        <li>Engineered Document Management Systems for multiple departments</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">SPFx</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Power Automate</span>
+                        <span class="tech-tag">SharePoint Online</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">SharePoint Administrator</div>
+                            <div class="exp-company">LTI Mindtree, Bengaluru</div>
+                        </div>
+                        <div class="exp-period">May 2024 - Feb 2025</div>
+                    </div>
+                    <div class="exp-summary">
+                        Managed SharePoint troubleshooting, escalations, and system stability for enterprise clients.
+                    </div>
+                    <ul class="exp-achievements">
+                        <li>Handled SharePoint troubleshooting and escalations with severity classification</li>
+                        <li>Collaborated with Senior Escalation Engineers for advanced issue resolution</li>
+                        <li>Maintained high customer satisfaction ratings with strong IVR feedback</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Administration</span>
+                        <span class="tech-tag">Troubleshooting</span>
+                        <span class="tech-tag">Support</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">SharePoint Administrator</div>
+                            <div class="exp-company">Happiest Minds (VIATRIS), Bengaluru</div>
+                        </div>
+                        <div class="exp-period">Jun 2023 - May 2024</div>
+                    </div>
+                    <div class="exp-summary">
+                        Configured and maintained SharePoint Online environment with focus on permissions and workflows.
+                    </div>
+                    <ul class="exp-achievements">
+                        <li>Configured SharePoint Online permissions, profiles, workflows, and search</li>
+                        <li>Resolved platform issues and restored system stability</li>
+                        <li>Created detailed technical and user documentation</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">SharePoint Online</span>
+                        <span class="tech-tag">Configuration</span>
+                        <span class="tech-tag">Documentation</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">SharePoint Developer</div>
+                            <div class="exp-company">TCS, Apexon, Bengaluru</div>
+                        </div>
+                        <div class="exp-period">Feb 2022 - Jun 2023</div>
+                    </div>
+                    <div class="exp-summary">
+                        Led large-scale SharePoint migrations and developed custom workflow solutions.
+                    </div>
+                    <ul class="exp-achievements">
+                        <li>Migrated 150+ SharePoint sites to SharePoint Online using ShareGate</li>
+                        <li>Managed SCA access and workflow automation development</li>
+                        <li>Developed custom solutions for enterprise clients</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Migration</span>
+                        <span class="tech-tag">ShareGate</span>
+                        <span class="tech-tag">Workflows</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="section-content">
+                <div class="education-item">
+                    <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+                    <div class="edu-institution">Nehru College, Coimbatore</div>
+                    <div class="edu-period">2012 - 2015</div>
+                </div>
+                <div class="education-item">
+                    <div class="edu-degree">Higher Secondary Education</div>
+                    <div class="edu-institution">ST Thomas HSS, Palakkad</div>
+                    <div class="edu-period">2010 - 2012</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="section-content">
+                <div class="languages-grid">
+                    <div class="language-item">
+                        <div class="language-name">English</div>
+                        <div class="language-level">Fluent</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Tamil</div>
+                        <div class="language-level">Native</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Hindi</div>
+                        <div class="language-level">Fluent</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Malayalam</div>
+                        <div class="language-level">Fluent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
