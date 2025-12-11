@@ -121,31 +121,42 @@ body.dark-mode .dock-drag-handle:hover {
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* ========== DOWNLOAD BUTTON ANIMATION ========== */
+/* ========== DOWNLOAD BUTTON WITH PULSING RING ========== */
 .dock-download-btn {
     position: relative;
     background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+    overflow: visible;
 }
 
-/* Idle bounce */
-@keyframes download-bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
+/* Continuous pulsing ring animation - like live updates */
+@keyframes pulse-ring {
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(16, 185, 129, 0.7),
+            0 0 0 0 rgba(16, 185, 129, 0.5),
+            0 0 20px rgba(16, 185, 129, 0.5);
     }
 
     50% {
-        transform: translateY(-5px);
+        box-shadow:
+            0 0 0 10px rgba(16, 185, 129, 0),
+            0 0 0 20px rgba(16, 185, 129, 0),
+            0 0 30px rgba(16, 185, 129, 0.8);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(16, 185, 129, 0),
+            0 0 0 0 rgba(16, 185, 129, 0),
+            0 0 20px rgba(16, 185, 129, 0.5);
     }
 }
 
 .dock-download-btn:not(.downloading):not(.downloaded) {
-    animation: download-bounce 2s ease-in-out infinite;
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Animated arrow - runs continuously from page load */
+/* Animated arrow - runs continuously */
 @keyframes arrow-fall {
     0% {
         transform: translateY(-10px);
@@ -172,18 +183,16 @@ body.dark-mode .dock-drag-handle:hover {
     animation: arrow-fall 1.5s ease-in-out infinite;
 }
 
-/* Speed up arrow on hover */
 .dock-download-btn:hover::before {
     animation: arrow-fall 0.8s ease-in-out infinite;
 }
 
-/* Hide arrow when downloading or downloaded */
 .dock-download-btn.downloading::before,
 .dock-download-btn.downloaded::before {
     display: none;
 }
 
-/* Downloading state - spinning circle */
+/* Downloading state */
 .dock-download-btn.downloading::after {
     content: '';
     position: absolute;
@@ -219,19 +228,10 @@ body.dark-mode .dock-drag-handle:hover {
     animation: success-pulse 0.6s ease-out;
 }
 
-/* Glow effect */
-@keyframes download-glow {
-
-    0%,
-    100% {
-        box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-    }
-
-    50% {
-        box-shadow: 0 0 35px rgba(16, 185, 129, 0.8);
-    }
-}
-
+/* Enhanced glow on hover */
 .dock-download-btn:hover {
-    animation: download-glow 1.5s ease-in-out infinite;
+    box-shadow:
+        0 0 0 0 rgba(16, 185, 129, 0),
+        0 0 0 0 rgba(16, 185, 129, 0),
+        0 0 40px rgba(16, 185, 129, 1);
 }
