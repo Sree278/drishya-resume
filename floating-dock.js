@@ -33,15 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let xOffset = 0;
     let yOffset = 0;
 
-    // Load saved position from localStorage
-    const savedPosition = localStorage.getItem('dockPosition');
-    if (savedPosition) {
-        const { x, y } = JSON.parse(savedPosition);
-        xOffset = x;
-        yOffset = y;
-        dockContainer.style.left = `${x}px`;
-        dockContainer.style.bottom = `${y}px`;
-        dockContainer.style.transform = 'none';
+
+    // Load saved position from localStorage with fallback
+    let savedPosition = null;
+    try {
+        savedPosition = localStorage.getItem('dockPosition');
+        if (savedPosition) {
+            const { x, y } = JSON.parse(savedPosition);
+            xOffset = x;
+            yOffset = y;
+            dockContainer.style.left = `${x}px`;
+            dockContainer.style.bottom = `${y}px`;
+            dockContainer.style.transform = 'none';
+        }
+    } catch (e) {
+        // localStorage blocked by tracking prevention - use default position
+        console.log('localStorage not available, using default position');
     }
 
     dragHandle.addEventListener('mousedown', dragStart);
@@ -119,10 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
             dockContainer.style.transform = 'scale(1)';
 
             const bottomPos = window.innerHeight - currentY - dockContainer.offsetHeight;
-            localStorage.setItem('dockPosition', JSON.stringify({
-                x: currentX,
-                y: bottomPos
-            }));
+
+            // Save position with fallback
+            try {
+                localStorage.setItem('dockPosition', JSON.stringify({
+                    x: currentX,
+                    y: bottomPos
+                }));
+            } catch (e) {
+                // localStorage blocked - position won't persist
+            }
         }
     }
 
