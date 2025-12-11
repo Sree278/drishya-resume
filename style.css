@@ -2282,23 +2282,6 @@ body.dark-mode::before {
 .cta-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(102, 126, 234, 0.5);
-    box-shadow: 0 4px 15px 0 rgba(102, 126, 234, 0.2);
-}
-
-/* === SOPHISTICATED BADGE === */
-.hero-badge {
-    background: rgba(102, 126, 234, 0.1);
-    border: 1px solid rgba(102, 126, 234, 0.3);
-    backdrop-filter: blur(10px);
-    color: #a5b4fc;
-    font-weight: 500;
-    box-shadow:
-        0 4px 12px rgba(102, 126, 234, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.status-dot-hero {
-    background: #10b981;
     box-shadow:
         0 0 0 0 rgba(16, 185, 129, 0.7),
         0 0 8px rgba(16, 185, 129, 0.6);
@@ -2591,7 +2574,9 @@ body.dark-mode::before {
     .section-title {
         font-size: 2rem;
     }
-}/* === TOOLTIP BEHAVIOR FIX === */
+}
+
+/* === TOOLTIP BEHAVIOR FIX === */
 
 /* Hide all tooltips by default */
 .dock-item .dock-tooltip {
