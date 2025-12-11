@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // initializeMaterialEffects(); // Disabled - keeping design clean
     initializeRotatingTitle();
     initializeTypingEffect();
-    initializeThemeToggle();
+    // initializeThemeToggle(); // Removed - theme toggle button no longer exists
     initializeGlowEffect();
     initializeMinimalAnimations();
     initializeSkillChart();

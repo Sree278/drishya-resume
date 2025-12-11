@@ -54,7 +54,7 @@
     .hero-title {
         font-size: 18px !important;
         margin-bottom: 1rem !important;
-        color: #059669 !important;
+        color: #64748b !important;
     }
 
     .hero-contact {
@@ -81,7 +81,7 @@
 
     .stat-value {
         font-size: 16pt !important;
-        color: #059669 !important;
+        color: #64748b !important;
     }
 
     .projects-grid {
@@ -118,7 +118,7 @@
         margin-bottom: 1rem !important;
         margin-top: 1.5rem !important;
         text-align: left !important;
-        border-bottom: 2px solid #059669;
+        border-bottom: 2px solid #64748b;
         padding-bottom: 0.5rem;
         display: inline-block;
     }
@@ -141,9 +141,9 @@
     --color-secondary: #064E3B;
     --text-primary: var(--color-secondary);
     --text-secondary: #047857;
-    --text-tertiary: #10B981;
+    --text-tertiary: #64748b;
     --border-color: #D1FAE5;
-    --color-accent: #059669;
+    --color-accent: #64748b;
     --accent-hover: #047857;
     --primary-charcoal: var(--text-primary);
     --secondary-gray: var(--text-secondary);
@@ -166,9 +166,9 @@ body.dark-mode {
     --border-light: rgba(255, 255, 255, 0.02);
     --border-color: rgba(255, 255, 255, 0.02);
     --bg-glass: rgba(30, 41, 59, 0.85);
-    --accent-light: rgba(52, 211, 153, 0.15);
-    --color-accent: #34d399;
-    --highlight: #34d399;
+    --accent-light: rgba(100, 116, 139, 0.15);
+    --color-accent: #64748b;
+    --highlight: #64748b;
     background: #0f172a;
     color: #f8fafc;
 }
@@ -594,7 +594,7 @@ body.dark-mode .minimal-btn:hover {
 body.dark-mode .tech-tag.highlight {
     background: var(--color-accent);
     color: #0f172a;
-    box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
+    box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
 }
 
 /* Timeline */
@@ -1117,7 +1117,7 @@ body.dark-mode .dock-drag-handle:hover {
 
 .dock-download-btn {
     position: relative;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    background: linear-gradient(135deg, #64748b 0%, #64748b 100%) !important;
     overflow: visible;
 }
 
@@ -1356,7 +1356,7 @@ body.dark-mode .moving-border-btn {
 .orb-1 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #34d399 0%, transparent 70%);
+    background: radial-gradient(circle, #64748b 0%, transparent 70%);
     top: -10%;
     left: -10%;
     animation-delay: 0s;
@@ -1430,8 +1430,8 @@ body.dark-mode .moving-border-btn {
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1.5rem;
-    background: rgba(52, 211, 153, 0.1);
-    border: 1px solid rgba(52, 211, 153, 0.2);
+    background: rgba(100, 116, 139, 0.1);
+    border: 1px solid rgba(100, 116, 139, 0.2);
     border-radius: 2rem;
     font-size: 0.875rem;
     font-weight: 500;
@@ -1470,7 +1470,7 @@ body.dark-mode .moving-border-btn {
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+    background: linear-gradient(135deg, #64748b 0%, #64748b 50%, #64748b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1520,12 +1520,12 @@ body.dark-mode .moving-border-btn {
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
+    box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
 }
 
 .cta-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(52, 211, 153, 0.4);
+    box-shadow: 0 6px 20px rgba(100, 116, 139, 0.4);
 }
 
 .cta-secondary {
@@ -1589,7 +1589,7 @@ body.dark-mode .moving-border-btn {
 .stats-card-glow {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.1), transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(100, 116, 139, 0.1), transparent 70%);
     pointer-events: none;
 }
 
@@ -1673,8 +1673,8 @@ body.dark-mode .moving-border-btn {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(52, 211, 153, 0.1);
-    border: 1px solid rgba(52, 211, 153, 0.2);
+    background: rgba(100, 116, 139, 0.1);
+    border: 1px solid rgba(100, 116, 139, 0.2);
     border-radius: 2rem;
     font-size: 0.875rem;
     font-weight: 600;
