@@ -114,8 +114,8 @@ body.dark-mode .bento-item.feature {
 }
 
 .bento-item .timeline-period {
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--highlight);
+    background: rgba(100, 116, 139, 0.1);
+    color: var(--text-medium);
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
     font-size: 0.75rem;
@@ -132,11 +132,11 @@ body.dark-mode .bento-item.feature {
 
     0%,
     100% {
-        box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+        box-shadow: 0 0 5px rgba(100, 116, 139, 0.3);
     }
 
     50% {
-        box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+        box-shadow: 0 0 20px rgba(100, 116, 139, 0.5);
         transform: scale(1.02);
     }
 }
