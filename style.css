@@ -1694,3 +1694,431 @@ body.dark-mode .moving-border-btn {
     position: relative;
     overflow: hidden;
 }
+/* ========================================
+   NEON & VIBRANT COLOR ENHANCEMENTS
+   Electric, eye-catching design
+   ======================================== */
+
+/* Neon Color Palette */
+:root {
+    --neon-cyan: #00f0ff;
+    --neon-pink: #ff006e;
+    --neon-purple: #b537ff;
+    --neon-green: #39ff14;
+    --neon-yellow: #ffff00;
+    --neon-orange: #ff6600;
+    --electric-blue: #0ff;
+    --hot-pink: #ff1493;
+}
+
+body.dark-mode {
+    --color-accent: var(--neon-cyan);
+    --highlight: var(--neon-green);
+}
+
+/* Neon Glow Effects */
+.hero-name-modern {
+    text-shadow:
+        0 0 10px var(--neon-cyan),
+        0 0 20px var(--neon-cyan),
+        0 0 30px var(--neon-cyan),
+        0 0 40px var(--neon-cyan);
+    animation: neon-flicker 3s infinite alternate;
+}
+
+@keyframes neon-flicker {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px var(--neon-cyan),
+            0 0 20px var(--neon-cyan),
+            0 0 30px var(--neon-cyan),
+            0 0 40px var(--neon-cyan);
+    }
+
+    50% {
+        text-shadow:
+            0 0 5px var(--neon-cyan),
+            0 0 10px var(--neon-cyan),
+            0 0 15px var(--neon-cyan),
+            0 0 20px var(--neon-cyan);
+    }
+}
+
+/* Gradient Text with Neon Colors */
+.gradient-text {
+    background: linear-gradient(135deg,
+            var(--neon-cyan) 0%,
+            var(--neon-purple) 50%,
+            var(--neon-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Neon Borders for Cards */
+.bento-item,
+.project-card,
+.skill-category,
+.timeline-content {
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(#0f172a, #0f172a),
+        linear-gradient(135deg,
+            var(--neon-cyan),
+            var(--neon-purple),
+            var(--neon-pink),
+            var(--neon-green));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    position: relative;
+}
+
+.bento-item::before,
+.project-card::before,
+.skill-category::before,
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg,
+            var(--neon-cyan),
+            var(--neon-purple),
+            var(--neon-pink),
+            var(--neon-green));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(10px);
+}
+
+.bento-item:hover::before,
+.project-card:hover::before,
+.skill-category:hover::before,
+.timeline-content:hover::before {
+    opacity: 0.8;
+    animation: neon-pulse 2s infinite;
+}
+
+@keyframes neon-pulse {
+
+    0%,
+    100% {
+        filter: blur(10px);
+        opacity: 0.8;
+    }
+
+    50% {
+        filter: blur(15px);
+        opacity: 1;
+    }
+}
+
+/* Vibrant Gradient Orbs */
+.gradient-orb.orb-1 {
+    background: radial-gradient(circle, var(--neon-cyan) 0%, transparent 70%);
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+.gradient-orb.orb-2 {
+    background: radial-gradient(circle, var(--neon-pink) 0%, transparent 70%);
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+.gradient-orb.orb-3 {
+    background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+/* Neon CTA Buttons */
+.cta-primary {
+    background: linear-gradient(135deg,
+            var(--neon-cyan) 0%,
+            var(--neon-purple) 100%);
+    box-shadow:
+        0 0 20px var(--neon-cyan),
+        0 0 40px var(--neon-cyan),
+        0 4px 20px rgba(0, 240, 255, 0.5);
+    border: 2px solid var(--neon-cyan);
+    animation: button-glow 2s infinite alternate;
+}
+
+.cta-primary:hover {
+    box-shadow:
+        0 0 30px var(--neon-cyan),
+        0 0 60px var(--neon-cyan),
+        0 8px 30px rgba(0, 240, 255, 0.7);
+    transform: translateY(-3px) scale(1.05);
+}
+
+@keyframes button-glow {
+    0% {
+        box-shadow:
+            0 0 20px var(--neon-cyan),
+            0 0 40px var(--neon-cyan),
+            0 4px 20px rgba(0, 240, 255, 0.5);
+    }
+
+    100% {
+        box-shadow:
+            0 0 30px var(--neon-purple),
+            0 0 60px var(--neon-purple),
+            0 4px 30px rgba(181, 55, 255, 0.5);
+    }
+}
+
+/* Vibrant Status Dot */
+.status-dot-hero {
+    background: var(--neon-green);
+    box-shadow:
+        0 0 10px var(--neon-green),
+        0 0 20px var(--neon-green),
+        0 0 30px var(--neon-green);
+    animation: neon-dot-pulse 2s infinite;
+}
+
+@keyframes neon-dot-pulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px var(--neon-green),
+            0 0 20px var(--neon-green),
+            0 0 30px var(--neon-green);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px var(--neon-green),
+            0 0 30px var(--neon-green),
+            0 0 45px var(--neon-green);
+        transform: scale(1.2);
+    }
+}
+
+/* Neon Badge */
+.hero-badge {
+    background: rgba(0, 240, 255, 0.1);
+    border: 2px solid var(--neon-cyan);
+    box-shadow:
+        0 0 10px var(--neon-cyan),
+        inset 0 0 10px rgba(0, 240, 255, 0.2);
+    color: var(--neon-cyan);
+}
+
+/* Electric Stats Card */
+.stats-card-modern {
+    background: linear-gradient(135deg,
+            rgba(0, 240, 255, 0.1) 0%,
+            rgba(181, 55, 255, 0.1) 100%);
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(#0f172a, #0f172a),
+        linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow:
+        0 0 20px rgba(0, 240, 255, 0.3),
+        0 0 40px rgba(181, 55, 255, 0.2);
+}
+
+.stat-number {
+    color: var(--neon-cyan);
+    text-shadow:
+        0 0 10px var(--neon-cyan),
+        0 0 20px var(--neon-cyan);
+}
+
+/* Vibrant Tech Tags */
+.tech-tag.highlight {
+    background: linear-gradient(135deg,
+            var(--neon-pink) 0%,
+            var(--neon-purple) 100%);
+    border: 2px solid var(--neon-pink);
+    box-shadow:
+        0 0 10px var(--neon-pink),
+        0 4px 15px rgba(255, 0, 110, 0.4);
+    color: white;
+}
+
+.tech-tag {
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    background: rgba(0, 240, 255, 0.05);
+    color: var(--neon-cyan);
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px var(--neon-cyan);
+    transform: translateY(-2px);
+}
+
+/* Neon Social Links */
+.social-link {
+    border: 2px solid var(--neon-cyan);
+    background: rgba(0, 240, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--neon-cyan);
+    box-shadow:
+        0 0 20px var(--neon-cyan),
+        0 0 40px var(--neon-cyan);
+    color: #0f172a;
+}
+
+/* Electric Download Button */
+.dock-download-btn {
+    background: linear-gradient(135deg,
+            var(--neon-green) 0%,
+            var(--neon-cyan) 100%) !important;
+    box-shadow:
+        0 0 20px var(--neon-green),
+        0 0 40px var(--neon-green),
+        0 4px 20px rgba(57, 255, 20, 0.5);
+    animation: download-pulse 2s infinite;
+}
+
+@keyframes download-pulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 20px var(--neon-green),
+            0 0 40px var(--neon-green),
+            0 4px 20px rgba(57, 255, 20, 0.5);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px var(--neon-green),
+            0 0 60px var(--neon-green),
+            0 8px 30px rgba(57, 255, 20, 0.7);
+    }
+}
+
+/* Section Titles with Neon Underline */
+.section-title {
+    position: relative;
+    color: #fff;
+    text-shadow:
+        0 0 10px rgba(0, 240, 255, 0.5),
+        0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg,
+            var(--neon-cyan) 0%,
+            var(--neon-purple) 50%,
+            var(--neon-pink) 100%);
+    box-shadow:
+        0 0 10px var(--neon-cyan),
+        0 0 20px var(--neon-purple);
+    animation: neon-line 3s infinite;
+}
+
+@keyframes neon-line {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px var(--neon-cyan),
+            0 0 20px var(--neon-purple);
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px var(--neon-cyan),
+            0 0 40px var(--neon-purple);
+    }
+}
+
+/* Vibrant Hover Glow */
+body.dark-mode .stat-item:hover,
+body.dark-mode .skill-category:hover,
+body.dark-mode .project-card:hover,
+body.dark-mode .timeline-content:hover {
+    box-shadow:
+        0 0 30px rgba(0, 240, 255, 0.4),
+        0 0 60px rgba(181, 55, 255, 0.3),
+        0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Neon Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg,
+            var(--neon-cyan) 0%,
+            var(--neon-purple) 100%);
+    border-radius: 6px;
+    box-shadow:
+        0 0 10px var(--neon-cyan),
+        inset 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    box-shadow:
+        0 0 20px var(--neon-cyan),
+        inset 0 0 20px rgba(0, 240, 255, 0.7);
+}
+
+/* Electric Background Pattern */
+body.dark-mode::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(0, 240, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(181, 55, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure content is above background */
+.minimal-container,
+.modern-hero,
+.minimal-section {
+    position: relative;
+    z-index: 1;
+}
