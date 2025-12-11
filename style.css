@@ -1148,34 +1148,35 @@ body.dark-mode .dock-drag-handle:hover {
     animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-@keyframes arrow-fall {
-    0% {
-        transform: translateY(-10px);
-        opacity: 0;
-    }
+@keyframes arrow-bounce {
 
-    50% {
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
         opacity: 1;
     }
 
-    100% {
-        transform: translateY(10px);
-        opacity: 0;
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+        opacity: 0.7;
     }
 }
 
 .dock-download-btn::before {
     content: '↓';
     position: absolute;
-    font-size: 18px;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
     font-weight: bold;
     color: white;
     pointer-events: none;
-    animation: arrow-fall 1.5s ease-in-out infinite;
+    animation: arrow-bounce 1.5s ease-in-out infinite;
 }
 
 .dock-download-btn:hover::before {
-    animation: arrow-fall 0.8s ease-in-out infinite;
+    animation: arrow-bounce 0.8s ease-in-out infinite;
 }
 
 .dock-download-btn.downloading::before,
@@ -1328,7 +1329,9 @@ body.dark-mode .moving-border-btn {
         width: 32px;
         height: 32px;
     }
-}/* Modern Hero Section Styles */
+}
+
+/* Modern Hero Section Styles */
 .modern-hero {
     position: relative;
     padding: 8rem 0 6rem;
@@ -1694,6 +1697,7 @@ body.dark-mode .moving-border-btn {
     position: relative;
     overflow: hidden;
 }
+
 /* ========================================
    NEON & VIBRANT COLOR ENHANCEMENTS
    Electric, eye-catching design
@@ -2122,6 +2126,7 @@ body.dark-mode::before {
     position: relative;
     z-index: 1;
 }
+
 /* ========================================
    PREMIUM DESIGN SYSTEM - Apple/Google Level
    Sophisticated, purposeful, and refined
@@ -2586,4 +2591,50 @@ body.dark-mode::before {
     .section-title {
         font-size: 2rem;
     }
+}/* === TOOLTIP BEHAVIOR FIX === */
+
+/* Hide all tooltips by default */
+.dock-item .dock-tooltip {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Show tooltip only on hover for regular dock items */
+.dock-item:hover .dock-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Download button tooltip - visible on page load, pulses to attract attention */
+.dock-download-btn .dock-tooltip {
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: tooltip-pulse 2s ease-in-out infinite;
+}
+
+@keyframes tooltip-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translateX(-50%) translateY(-2px);
+    }
+}
+
+/* Stop pulsing when user hovers */
+.dock-download-btn:hover .dock-tooltip {
+    animation: none;
+    opacity: 1 !important;
+}
+
+/* Hide download tooltip when downloading or downloaded */
+.dock-download-btn.downloading .dock-tooltip,
+.dock-download-btn.downloaded .dock-tooltip {
+    opacity: 0 !important;
+    visibility: hidden !important;
 }
