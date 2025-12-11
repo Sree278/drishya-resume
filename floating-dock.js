@@ -80,10 +80,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentY = e.clientY - initialY;
             }
 
+            // Get dock dimensions
+            const dockWidth = dockContainer.offsetWidth;
+            const dockHeight = dockContainer.offsetHeight;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            // Add padding to prevent touching edges
+            const padding = 10;
+
+            // Constrain X position (left/right boundaries)
+            const minX = padding;
+            const maxX = windowWidth - dockWidth - padding;
+            currentX = Math.max(minX, Math.min(currentX, maxX));
+
+            // Constrain Y position (top/bottom boundaries)
+            const minY = padding;
+            const maxY = windowHeight - dockHeight - padding;
+            currentY = Math.max(minY, Math.min(currentY, maxY));
+
             xOffset = currentX;
             yOffset = currentY;
 
-            const bottomPos = window.innerHeight - currentY - dockContainer.offsetHeight;
+            const bottomPos = windowHeight - currentY - dockHeight;
 
             dockContainer.style.left = `${currentX}px`;
             dockContainer.style.bottom = `${bottomPos}px`;
@@ -247,4 +266,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         });
     }
+
+    // Handle window resize to keep dock on screen
+    window.addEventListener('resize', () => {
+        const dockWidth = dockContainer.offsetWidth;
+        const dockHeight = dockContainer.offsetHeight;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const padding = 10;
+
+        // Get current position
+        const currentLeft = parseInt(dockContainer.style.left) || 0;
+        const currentBottom = parseInt(dockContainer.style.bottom) || 0;
+
+        // Calculate constrained position
+        const maxX = windowWidth - dockWidth - padding;
+        const maxBottom = windowHeight - dockHeight - padding;
+
+        // Adjust if out of bounds
+        let newLeft = Math.max(padding, Math.min(currentLeft, maxX));
+        let newBottom = Math.max(padding, Math.min(currentBottom, maxBottom));
+
+        dockContainer.style.left = `${newLeft}px`;
+        dockContainer.style.bottom = `${newBottom}px`;
+    });
 });

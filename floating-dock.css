@@ -235,3 +235,21 @@ body.dark-mode .dock-drag-handle:hover {
         0 0 0 0 rgba(16, 185, 129, 0),
         0 0 40px rgba(16, 185, 129, 1);
 }
+
+/* ========== MOBILE RESPONSIVENESS ========== */
+@media (max-width: 768px) {
+    .floating-dock-container {
+        bottom: 1rem !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        padding: 0.75rem;
+        gap: 0.75rem;
+        max-width: calc(100vw - 20px);
+    }
+    .dock-item { width: 36px; height: 36px; }
+    .dock-drag-handle { width: 24px; height: 36px; }
+}
+@media (max-width: 480px) {
+    .floating-dock-container { bottom: 0.5rem !important; padding: 0.5rem; gap: 0.5rem; }
+    .dock-item { width: 32px; height: 32px; }
+}
